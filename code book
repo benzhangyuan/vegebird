@@ -1,0 +1,4 @@
+subject: a factor with 30 levels from 1 to 30. This is the number for each subject in the experiement.
+activity: a factor with 6 levels. The values are "LAYING", "SITTING", "STANDING", "WALKING", "WALKING_DOWNSTAIRS", "WALKING_UPSTAIRS". This is the activity the subject does in the experiment.
+variable: a factor with 66 levels. This is from the features in the original dataset.
+mean: numeric. This is the average of each variable for each subject and activity.

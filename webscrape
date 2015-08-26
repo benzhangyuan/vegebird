@@ -1,0 +1,15 @@
+# scrape data on a webpage using rvest library
+webscrape<-function (urls) {
+   library("rvest")
+   df<-data.frame(AssetCode=character(), Product=character(), Solution=character(), stringAsFactors=F)
+   i=1
+   for (url in urls) {
+   assetcode<-tryCatch({html_node(html(url), xpath='//input[@id="AssetCodeID"]') %>% html_attr("value")}, error=function(c) 0)
+   product<-tryCatch({html_node(html(url), xpath='//meta[@name="Product"]') %>% html_attr("content")}, error=function(c) 0)
+   solution<-tryCatch({html_node(html(url), xpath='//meta[@name="Solution"]') %>% html_attr("content")}, error=function(c) 0)
+   print(c(i, assetcode, product, solution)
+   df[i,]<-c(assetcode, product, solution)
+   i=i+1
+}
+   return (df)
+}
